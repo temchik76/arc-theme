@@ -17,7 +17,7 @@ clean:
 if RENDERSVG
 
 $(normal): $(srcdir)/assets.svg | assets
-	$(RENDERSVG) --export-id "$(basename $(notdir $@))" --dpi 96 "$<" "$@"
+	$(RENDERSVG) --export-id "$(basename $(notdir $@))" --dpi 120 "$<" "$@"
 if OPTIPNG
 	$(OPTIPNG) -o7 --quiet "$@"
 endif
@@ -30,7 +30,7 @@ endif
 else
 
 $(normal): $(srcdir)/assets.svg | assets
-	$(INKSCAPE) --export-id-only --export-png="$@" --export-id="$(basename $(notdir $@))" --export-dpi=96 "$<" >/dev/null
+	$(INKSCAPE) --export-id-only --export-png="$@" --export-id="$(basename $(notdir $@))" --export-dpi=120 "$<" >/dev/null
 if OPTIPNG
 	$(OPTIPNG) -o7 --quiet "$@"
 endif

@@ -19,7 +19,7 @@ $(dark): $(srcdir)/dark/assets.svg | dark/assets
 if RENDERSVG
 
 $(light) $(dark):
-	$(RENDERSVG) --export-id "$(basename $(notdir $@))" --dpi $(if $(filter $(OPTION_GTK2_HIDPI),true),192,96) "$<" "$@"
+	$(RENDERSVG) --export-id "$(basename $(notdir $@))" --dpi $(if $(filter $(OPTION_GTK2_HIDPI),true),192,120) "$<" "$@"
 if OPTIPNG
 	$(OPTIPNG) -o7 --quiet "$@"
 endif
@@ -27,7 +27,7 @@ endif
 else
 
 $(light) $(dark):
-	$(INKSCAPE) --export-id-only --export-png="$@" --export-id="$(basename $(notdir $@))" --export-dpi=$(if $(filter $(OPTION_GTK2_HIDPI),true),192,96) "$<" >/dev/null
+	$(INKSCAPE) --export-id-only --export-png="$@" --export-id="$(basename $(notdir $@))" --export-dpi=$(if $(filter $(OPTION_GTK2_HIDPI),true),192,120) "$<" >/dev/null
 if OPTIPNG
 	$(OPTIPNG) -o7 --quiet "$@"
 endif
